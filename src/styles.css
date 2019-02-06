@@ -1,11 +1,16 @@
 @import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 body {
     margin: 0;
     background-color: #424242;
     color: white;
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 1.5em !important;
 }
+
+/* * {
+    font-family: 'PT Sans Narrow', sans-serif !important;
+} */
 
 .mat-toolbar.mat-primary {
     background: #BF9000;

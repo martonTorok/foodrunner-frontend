@@ -1,0 +1,12 @@
+<h2>You hungry? What do you like?</h2>
+
+<mat-grid-list cols="3" rowHeight="4:1">
+  <mat-grid-tile *ngFor="let category of categories">
+    <mat-card class="card z-depth ">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title>{{ category }}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
