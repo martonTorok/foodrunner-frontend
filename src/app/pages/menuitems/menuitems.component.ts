@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item.service';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-menuitems',
@@ -13,7 +14,9 @@ export class MenuitemsComponent implements OnInit {
   currentCategory: string;
   breakpoint: number;
   
-  constructor(private itemService: ItemService, private activatedRoute: ActivatedRoute) { }
+  constructor(private itemService: ItemService,
+    private cartService: CartService,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.getCurrentCategory();
@@ -38,4 +41,10 @@ export class MenuitemsComponent implements OnInit {
     this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 4;
   }
 
+  onBuy(itemId: number) {
+    this.cartService.addToCart(itemId)
+      .subscribe(cart => {
+        
+      })
+  }
 }
