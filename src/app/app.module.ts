@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -21,7 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './pages/home/home.component';
-import { MenuitemsComponent } from './pages/menuitems/menuitems.component';
+import { MenuitemsComponent, AddedToCartComponent } from './pages/menuitems/menuitems.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { FooterComponent } from './footer/footer.component';
@@ -38,7 +39,8 @@ import { CartComponent } from './pages/cart/cart.component';
     RegisterComponent,
     LoginComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    AddedToCartComponent
   ],
   imports: [
     BrowserModule,
@@ -57,11 +59,13 @@ import { CartComponent } from './pages/cart/cart.component';
     MatInputModule,
     MatBadgeModule,
     MatListModule,
+    MatSnackBarModule,
     MatBottomSheetModule,
     HttpClientModule
   ],
   entryComponents: [
-    CartComponent
+    CartComponent,
+    AddedToCartComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
