@@ -17,14 +17,21 @@ export class FooterComponent implements OnInit {
     private cartService: CartService) { }
 
   ngOnInit() {
-    this.getNrOfCartItems();
+    this.getCartTotalItemQuantity();
   }
 
   openBottomSheet(): void {
     this.bottomSheet.open(CartComponent);
   }
 
-  getNrOfCartItems() {
+  getCartTotalItemQuantity() {
+    this.cartService.cartChanged
+      .subscribe(cart => {
+        this.totalItemQuantity = cart.totalQuantity;
+      }, err => {
+        console.log(err);
+      })
+
     this.cartService.getCartItems()
       .subscribe(cart => {
         this.totalItemQuantity = cart.totalQuantity;
