@@ -1,0 +1,6 @@
+<footer *ngIf="authService.isAuthenticated()">
+  <button mat-icon-button class="circle" (click)="openBottomSheet()">
+    <mat-icon class="md-48" [matBadge]="totalItemQuantity" inline=true matBadgeColor="warn" matBadgePosition="above before"
+      matBadgeOverlap="false">shopping_cart</mat-icon>
+  </button>
+</footer>
