@@ -1,12 +1,14 @@
-<h2>You hungry? What do you like?</h2>
+<h1>You hungry? What would You like?</h1>
 
-<mat-grid-list cols="3" rowHeight="4:1">
+<mat-grid-list [cols]="breakpoint" rowHeight="1:1" (window:resize)="onResize($event)">
   <mat-grid-tile *ngFor="let category of categories">
-    <mat-card class="card z-depth ">
+    <mat-card class="card card-depth " [routerLink]="['/items']" [queryParams]="{category: category}">
       <mat-card-header>
-        <div mat-card-avatar class="header-image"></div>
-        <mat-card-title>{{ category }}</mat-card-title>
+        <img mat-card-avatar src="../../../assets/images/{{category}}.jpg">
       </mat-card-header>
+      <mat-card-content>
+        <p><b>{{category}}</b></p>
+      </mat-card-content>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
