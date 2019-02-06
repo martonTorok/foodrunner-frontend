@@ -8,6 +8,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -16,6 +18,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuitemsComponent } from './pages/menuitems/menuitems.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import { MenuitemsComponent } from './pages/menuitems/menuitems.component';
     AppComponent,
     MenuComponent,
     HomeComponent,
-    MenuitemsComponent
+    MenuitemsComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,8 @@ import { MenuitemsComponent } from './pages/menuitems/menuitems.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
     HttpClientModule
   ],
   providers: [],

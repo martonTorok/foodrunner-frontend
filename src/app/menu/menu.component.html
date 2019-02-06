@@ -15,6 +15,8 @@
       </button>
     </mat-menu>
     <span class="fill-space"></span>
-    <a mat-button routerLink=".">Register</a>
+    <a mat-button [routerLink]="['/register']" *ngIf="!authService.isAuthenticated()">Register</a>
+    <a mat-button [routerLink]="['/login']" *ngIf="!authService.isAuthenticated()">Login</a>
+    <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()">LogOut</a>
   </mat-toolbar-row>
 </mat-toolbar>

@@ -1,0 +1,25 @@
+<div class="form-container">
+  <form [formGroup]="registrationForm" class="registration-form full-width" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="1" rowHeight="10:1">
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="email.invalid">
+            {{getEmailErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Password" formControlName="password">
+          <mat-error *ngIf="password.invalid">
+            {{getPasswordErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</div>
