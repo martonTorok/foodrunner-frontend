@@ -11,12 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class MenuitemsComponent implements OnInit {
   menuItems: Item[];
   currentCategory: string;
+  breakpoint: number;
   
   constructor(private itemService: ItemService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.getCurrentCategory();
     this.getItemsByCategory(this.currentCategory);
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 4;
   }
 
   getCurrentCategory() {
@@ -30,6 +32,10 @@ export class MenuitemsComponent implements OnInit {
       .subscribe(items => {
         this.menuItems = items;
       })
+  }
+
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 4;
   }
 
 }
