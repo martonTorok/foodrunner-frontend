@@ -12,13 +12,7 @@ export class AuthService {
 
   createUser(email: string, password: string) {
     const url = 'http://localhost:3000/user/register';
-    return this.http.post<{ token: string }>(url, { email, password })
-      .pipe(
-        map(result => {
-          localStorage.setItem('access_token', result.token);
-          return true;
-        })
-      )
+    return this.http.post<{ token: string }>(url, { email, password });
   }
 
   loginUser(email: string, password: string): Observable<boolean> {

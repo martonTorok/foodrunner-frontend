@@ -27,11 +27,10 @@ export class RegisterComponent implements OnInit {
       this.authService.createUser(this.email.value, this.password.value)
         .subscribe(data => {
           console.log(data);
-          this.router.navigate(['/home'])
+          this.router.navigate(['/login'])
         }, error => {
           console.log(error);
         })
-      
     }
   }
 
