@@ -8,11 +8,7 @@ body {
     font-size: 1.5em !important;
 }
 
-/* * {
-    font-family: 'PT Sans Narrow', sans-serif !important;
-} */
-
 .mat-toolbar.mat-primary {
-    background: #BF9000;
+    background: #ea3131;
     color: #fff;
 }
