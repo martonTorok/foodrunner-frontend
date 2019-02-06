@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+body {
+    margin: 0;
+    background-color: #424242;
+    color: white;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.mat-toolbar.mat-primary {
+    background: #BF9000;
+    color: #fff;
+}
