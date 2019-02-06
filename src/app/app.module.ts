@@ -10,8 +10,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +24,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuitemsComponent } from './pages/menuitems/menuitems.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
+import { FooterComponent } from './footer/footer.component';
+import { AddheaderinterceptorService } from './auth/addheaderinterceptor.service';
+import { CartComponent } from './pages/cart/cart.component';
 
 
 @NgModule({
@@ -29,7 +36,9 @@ import { LoginComponent } from './auth/login/login.component';
     HomeComponent,
     MenuitemsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +55,19 @@ import { LoginComponent } from './auth/login/login.component';
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
+    MatBadgeModule,
+    MatListModule,
+    MatBottomSheetModule,
     HttpClientModule
   ],
-  providers: [],
+  entryComponents: [
+    CartComponent
+  ],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AddheaderinterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
