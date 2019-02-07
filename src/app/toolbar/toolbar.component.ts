@@ -9,7 +9,6 @@ import { Item } from '../models/item.model';
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent implements OnInit {
-  
   totalItemQuantity: number;
   totalPrice: number;
   cartItems: Item[];
@@ -22,7 +21,6 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
     this.getCartItems();
   }
-
 
   getCartItems() {
     this.cartService.getCartItems()
@@ -43,16 +41,18 @@ export class ToolbarComponent implements OnInit {
       })
   }
 
-  onAddItem(id: number) {
-    this.addDisabled = true;
-    this.cartService.addToCart(id)
-      .subscribe(cart => {
-        this.cartService.cartChanged.next(cart);
-        this.addDisabled = false;
-      }, err => {
-        console.log(err);
-        this.addDisabled = false;
-      })
+  onAddItem(item: Item) {
+    if (!(this.totalPrice + item.price > 20000)) {
+      this.addDisabled = true;
+      this.cartService.addToCart(item.id)
+        .subscribe(cart => {
+          this.cartService.cartChanged.next(cart);
+          this.addDisabled = false;
+        }, err => {
+          console.log(err);
+          this.addDisabled = false;
+        })
+    }
   }
   onRemoveItem(id: number) {
     this.removeDisabled = true;

@@ -1,0 +1,17 @@
+.full-width {
+    width: 100%;
+}
+
+mat-grid-tile {
+    width: 50%;
+}
+
+mat-form-field {
+    height: 100%;
+}
+
+.form-container {
+    padding-top: 5%;
+    padding-left: 25%;
+    width: 50%;
+}

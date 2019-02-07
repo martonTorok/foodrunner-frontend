@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
-import { Cart } from '../models/cart.model';
-import { map, tap } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'

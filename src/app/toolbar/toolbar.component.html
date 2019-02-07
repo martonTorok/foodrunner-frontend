@@ -16,7 +16,7 @@
           <td class="middle-cell">{{cartItem.totalQuantity}} db</td>
           <td class="right-align-cell">{{cartItem.totalPrice}} Ft</td>
           <td class="action-button-cell">
-            <button mat-icon-button (click)="onAddItem(cartItem.item.id)">
+            <button mat-icon-button (click)="onAddItem(cartItem.item)">
               <mat-icon>add_circle</mat-icon>
             </button>
             <button mat-icon-button (click)="onRemoveItem(cartItem.item.id)">

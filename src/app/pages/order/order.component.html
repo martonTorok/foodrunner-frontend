@@ -1,3 +1,6 @@
+<mat-toolbar-row>
+  <span>Order details</span>
+</mat-toolbar-row>
 <mat-horizontal-stepper linear="true" #stepper>
   <mat-step [stepControl]="fullNameFormGroup">
     <form [formGroup]="fullNameFormGroup">
@@ -42,7 +45,7 @@
     <p>Phone Number:
       <b><i>{{phoneNumberFormGroup.value.phoneNumberCtrl}}</i></b></p>
 
-      <h4><i>Press Order to submit.</i></h4>
+    <h4><i>Press Order to submit.</i></h4>
     <div>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>

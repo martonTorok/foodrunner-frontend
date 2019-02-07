@@ -1,5 +1,7 @@
+<mat-toolbar-row>
+    <span>{{currentCategory}}</span>
+  </mat-toolbar-row>
 <div class="menuItems">
-  <h2 class="category">{{currentCategory}}</h2>
   <mat-accordion>
     <mat-expansion-panel *ngFor="let item of menuItems" (opened)="panelOpenState = true"
       (closed)="panelOpenState = false">
