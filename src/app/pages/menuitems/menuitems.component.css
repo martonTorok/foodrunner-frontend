@@ -1,4 +1,16 @@
-/* .menuItem-card {
-    max-width: 400px;
-  }
-   */
+mat-expansion-panel {
+  max-width: 60%;
+}
+
+table {
+  width: 100%;
+}
+
+.menuItems {
+  padding-left: 25%;
+}
+
+.category {
+  font-weight: 500;
+  font-size: 1.4em;
+}

@@ -4,6 +4,7 @@ import { ItemService } from 'src/app/services/item.service';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-menuitems',
@@ -17,13 +18,13 @@ export class MenuitemsComponent implements OnInit {
 
   constructor(private itemService: ItemService,
     private cartService: CartService,
+    private authService: AuthService,
     private activatedRoute: ActivatedRoute,
     private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getCurrentCategory();
     this.getItemsByCategory(this.currentCategory);
-    this.breakpoint = (window.innerWidth <= 400) ? 1 : 4;
   }
 
   getCurrentCategory() {
@@ -39,13 +40,11 @@ export class MenuitemsComponent implements OnInit {
       })
   }
 
-  onResize(event) {
-    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 4;
-  }
-
   onAdd(itemId: number) {
     this.cartService.addToCart(itemId)
-      .subscribe();
+      .subscribe(cart => {
+        this.cartService.cartChanged.next(cart);
+      });
 
     this.snackBar.openFromComponent(AddedToCartComponent, {
       duration: 500,
@@ -59,9 +58,9 @@ export class MenuitemsComponent implements OnInit {
               Added to cart.
               </span>`,
   styles: [`
-    .example-pizza-party {
-      color: hotpink;
-      background-color: #424242;
+    .addedToCart {
+      color: white;
+      font-size: 0.7em;
     }
   `],
 })

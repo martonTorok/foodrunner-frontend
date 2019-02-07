@@ -1,14 +1,19 @@
-<h1>You hungry? What would You like?</h1>
+<div class="home-bg">
 
-<mat-grid-list [cols]="breakpoint" rowHeight="1:1" (window:resize)="onResize($event)">
-  <mat-grid-tile *ngFor="let category of categories">
-    <mat-card class="card card-depth " [routerLink]="['/items']" [queryParams]="{category: category}">
-      <mat-card-header>
-        <img mat-card-avatar src="../../../assets/images/{{category}}.jpg">
-      </mat-card-header>
-      <mat-card-content>
-        <p><b>{{category}}</b></p>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+    <h1 class="welcome">The best food every day.</h1>
+    <h3 class="welcome-q">What's your favourite?</h3>
+
+  <mat-grid-list [cols]="breakpoint" rowHeight="1:1" (window:resize)="onResize($event)">
+    <mat-grid-tile *ngFor="let category of categories">
+      <mat-card class="card card-depth " [routerLink]="['/items']" [queryParams]="{category: category}">
+        <mat-card-header>
+          <img mat-card-avatar src="../../../assets/images/{{category}}.jpg">
+        </mat-card-header>
+        <mat-card-content>
+          <p><b>{{category}}</b></p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

@@ -1,0 +1,52 @@
+<mat-horizontal-stepper linear="true" #stepper>
+  <mat-step [stepControl]="fullNameFormGroup">
+    <form [formGroup]="fullNameFormGroup">
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Full Name" formControlName="fullNameCtrl" required autofocus>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="addressFormGroup">
+    <form [formGroup]="addressFormGroup">
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Address" formControlName="addressCtrl" required autofocus>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="phoneNumberFormGroup">
+    <form [formGroup]="phoneNumberFormGroup">
+      <ng-template matStepLabel>Fill out your phone Number.</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phoneNumberCtrl" required autofocus>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>Your order information:</p>
+    <p>Full Name: <b><i>{{fullNameFormGroup.value.fullNameCtrl}}</i></b></p>
+    <p>Address: <b><i>{{addressFormGroup.value.addressCtrl}}</i></b></p>
+    <p>Phone Number:
+      <b><i>{{phoneNumberFormGroup.value.phoneNumberCtrl}}</i></b></p>
+
+      <h4><i>Press Order to submit.</i></h4>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-raised-button class="order-button" (click)="onSubmitOrder()">Order</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

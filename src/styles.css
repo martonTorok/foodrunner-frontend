@@ -1,4 +1,4 @@
-@import '@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 body {
@@ -11,4 +11,12 @@ body {
 .mat-toolbar.mat-primary {
     background: #ea3131;
     color: #fff;
+}
+
+.right-aligned-header>.mat-content {
+    justify-content: space-between;
+}
+
+.mat-content>mat-panel-title, .mat-content>mat-panel-description {
+    flex: 0 0 auto;
 }

@@ -1,17 +1,29 @@
-<mat-grid-list [cols]="breakpoint" rowHeight="1:1" (window:resize)="onResize($event)">
-  <mat-grid-tile *ngFor="let item of menuItems">
-    <mat-card class="menuItem-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{item.name}}</mat-card-title>
-        <mat-card-subtitle>{{item.price}} Ft</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <p>{{item.description}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-stroked-button color="warn" (click)="onAdd(item.id)">Add</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="menuItems">
+  <h2 class="category">{{currentCategory}}</h2>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let item of menuItems" (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header class="right-aligned-header">
+        <mat-panel-title>
+          {{item.name}}
+          <p *ngIf="item.spicy">🔥</p>
+          <p *ngIf="item.vegatarian">🌿</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          {{item.price}} Forint
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile>{{item.description}}</mat-grid-tile>
+        <mat-grid-tile>
+          <mat-chip-list>
+            <mat-chip color="warn" selected *ngIf="item.spicy">Spicy 🔥</mat-chip>
+            <mat-chip color="accent" selected *ngIf="item.vegatarian">Vegatarian 🌿</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+        <mat-grid-tile><button mat-button color="warn" (click)="onAdd(item.id)"
+            *ngIf="authService.isAuthenticated()">Add To Cart</button></mat-grid-tile>
+      </mat-grid-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -32,4 +32,12 @@ export class CartService {
         this.cartChanged.next(cart);
       }))
   }
+
+  emptyCart() {
+    const url = 'http://localhost:3000/empty-cart';
+    return this.http.delete<Cart>(url)
+      .pipe(tap(cart => {
+        this.cartChanged.next(cart);
+      }))
+  }
 }

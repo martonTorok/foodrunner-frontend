@@ -1,0 +1,58 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="over" class="app-sidenav" position="end">
+    <mat-toolbar color="primary">
+
+      <span>My Cart</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        <tr *ngFor="let cartItem of cartItems">
+          <td>{{cartItem.item.name}}</td>
+          <td class="middle-cell">{{cartItem.totalQuantity}} db</td>
+          <td class="right-align-cell">{{cartItem.totalPrice}} Ft</td>
+          <td class="action-button-cell">
+            <button mat-icon-button (click)="onAddItem(cartItem.item.id)">
+              <mat-icon>add_circle</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onRemoveItem(cartItem.item.id)">
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td class="totalPrice-cell">
+            <p>Total: {{totalPrice}} Forint</p>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><button mat-raised-button class="order-button" [routerLink]="['/order']"
+              (click)="sidenav.toggle()">Order</button></td>
+        </tr>
+      </table>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <a mat-button routerLink="."><i>FOODRUNNER</i></a>
+      <span class="fill-space"></span>
+      <a mat-button [routerLink]="['/register']" *ngIf="!authService.isAuthenticated()" class="underlined">Register</a>
+      <a mat-button [routerLink]="['/login']" *ngIf="!authService.isAuthenticated()" class="underlined">Login</a>
+      <a mat-button (click)="onLogout()" *ngIf="authService.isAuthenticated()" class="underlined">Log Out</a>
+      <button mat-icon-button class="circle" (click)="sidenav.toggle()" *ngIf="authService.isAuthenticated()">
+        <mat-icon class="md-36" [matBadge]="totalItemQuantity" inline=true matBadgeColor="accent"
+          matBadgePosition="above before" matBadgeOverlap="false" matBadgeSize="medium">shopping_cart</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

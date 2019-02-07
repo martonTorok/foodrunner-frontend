@@ -1,0 +1,63 @@
+.fill-space {
+    flex: 1 1 auto;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+mat-nav-list {
+    width: 350px;
+}
+
+table {
+    font-size: 0.8em;
+    /* white-space: nowrap; */
+}
+
+td {
+    max-width: 100px;
+}
+
+th {
+    width: 60px;
+    height: 50px;
+}
+
+.order-button {
+    background-color: #8EB818;
+    min-width: 100px;
+    min-height: 32px;
+}
+
+.action-button-cell {
+    width: 20px;
+}
+
+.middle-cell {
+    text-align: center;
+}
+
+.right-align-cell {
+    text-align: right;
+}
+
+.totalPrice-cell {
+    font-weight: bold;
+    border-top: solid 3px black;
+}
+
+.toolbar-fullscreen {
+    display: none;
+}
+
+.underlined {
+    font-weight: bold;
+    text-decoration: underline;
+}
