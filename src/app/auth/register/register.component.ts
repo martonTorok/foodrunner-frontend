@@ -33,6 +33,11 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['/login'])
         }, error => {
           console.log(error);
+          this.email.reset();
+          this.password.reset();
+          this.snackBar.openFromComponent(EmailTakenComponent, {
+            duration: 3000
+          })
         })
     }
   }
@@ -62,3 +67,18 @@ export class RegisterComponent implements OnInit {
   `],
 })
 export class RegistrationSuccessfulComponent { }
+
+@Component({
+  selector: 'email-taken-component',
+  template: `<span class="emailTaken">
+              Email address already registered.
+              Try again with another one.
+              </span>`,
+  styles: [`
+    .emailTaken {
+      color: #e52727;
+      font-size: 0.8em;
+    }
+  `],
+})
+export class EmailTakenComponent { }

@@ -15,3 +15,9 @@ mat-form-field {
     padding-left: 25%;
     width: 50%;
 }
+
+mat-toolbar-row {
+    font-size: 1.5em;
+    color:white;
+    background-color: #ea3131;
+  }

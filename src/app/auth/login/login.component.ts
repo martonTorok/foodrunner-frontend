@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required, Validators.minLength(6)])
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private snackbar: MatSnackBar) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -28,6 +29,11 @@ export class LoginComponent implements OnInit {
         .subscribe(data => {
           window.location.reload();
         }, error => {
+          this.email.reset();
+          this.password.reset();
+          this.snackbar.openFromComponent(InvalidCredentialsComponent, {
+            duration: 3000
+          });
           console.log(error);
         })
 
@@ -45,3 +51,18 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'invalid-credentials-component',
+  template: `<span class="invalidCredentials">
+              Email or password is wrong.
+              Please try again.
+              </span>`,
+  styles: [`
+    .invalidCredentials {
+      color: #e52727;
+      font-size: 0.8em;
+    }
+  `],
+})
+export class InvalidCredentialsComponent { }

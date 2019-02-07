@@ -28,8 +28,8 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuitemsComponent, AddedToCartComponent } from './pages/menuitems/menuitems.component';
-import { RegisterComponent, RegistrationSuccessfulComponent } from './auth/register/register.component';
-import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent, RegistrationSuccessfulComponent, EmailTakenComponent } from './auth/register/register.component';
+import { LoginComponent, InvalidCredentialsComponent } from './auth/login/login.component';
 import { AddheaderinterceptorService } from './auth/addheaderinterceptor.service';
 import { AuthLoginGuardService } from './auth/authloginguard.service';
 import { CartService } from './services/cart.service';
@@ -50,6 +50,8 @@ import { AuthGuardService } from './auth/authguard.service';
     AddedToCartComponent,
     OrderSuccessfulComponent,
     RegistrationSuccessfulComponent,
+    EmailTakenComponent,
+    InvalidCredentialsComponent,
     OrderComponent
   ],
   imports: [
@@ -82,7 +84,9 @@ import { AuthGuardService } from './auth/authguard.service';
   entryComponents: [
     AddedToCartComponent,
     OrderSuccessfulComponent,
-    RegistrationSuccessfulComponent
+    RegistrationSuccessfulComponent,
+    EmailTakenComponent,
+    InvalidCredentialsComponent
   ],
   providers: [AuthLoginGuardService, AuthGuardService, CartService, AuthService, ItemService,
     {
