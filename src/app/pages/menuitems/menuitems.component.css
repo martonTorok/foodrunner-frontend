@@ -7,7 +7,7 @@ table {
 }
 
 .menuItems {
-  padding-left: 25%;
+  padding-left: 26%
 }
 
 .category {
@@ -19,4 +19,13 @@ mat-toolbar-row {
   font-size: 1.5em;
   color:white;
   background-color: #ea3131;
+  text-align: center;
+}
+
+.menuItems {
+  height: 100%;
+  background-image: url(../../../assets/images/food-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
