@@ -18,7 +18,7 @@ mat-nav-list {
 
 table {
     font-size: 0.8em;
-    /* white-space: nowrap; */
+    font-family: 'PT Sans Narrow', sans-serif !important;
 }
 
 td {

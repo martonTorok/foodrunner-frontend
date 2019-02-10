@@ -43,7 +43,7 @@
 
   <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <a mat-button routerLink="."><i>FOODRUNNER</i></a>
+      <a mat-button routerLink=".">🚲 <i>FOODRUNNER</i> 🚗</a>
       <span class="fill-space"></span>
       <a mat-button [routerLink]="['/register']" *ngIf="!authService.isAuthenticated()" class="underlined">Register</a>
       <a mat-button [routerLink]="['/login']" *ngIf="!authService.isAuthenticated()" class="underlined">Login</a>
